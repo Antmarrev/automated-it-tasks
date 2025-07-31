@@ -1,0 +1,9 @@
+# Lista de apps a instalar con winget
+# Puedes buscar IDs con: winget search <nombre>
+
+Google.Chrome
+Mozilla.Firefox
+Microsoft.VisualStudioCode
+7zip.7zip
+Git.Git
+Notepad++.Notepad++
