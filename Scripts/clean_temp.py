@@ -9,13 +9,10 @@ sys.stdout.reconfigure(encoding='utf-8')
 
 
 def get_temp_paths():
-    system = platform.system()
-    if system == "Windows":
-        return [Path(os.environ.get("TEMP", "C:/Windows/Temp"))]
-    elif system in ["Linux", "Darwin"]:
-        return [Path("/tmp")]
-    else:
-        raise Exception("Sistema operativo no soportado")
+    temp_path = os.environ.get("TEMP")
+    if not temp_path:
+        raise EnvironmentError("No se pudo obtener la ruta temporal (TEMP) en Windows.")
+    return [Path(temp_path)]
 
 def clean_temp_folder(path: Path, dry_run=False):
     files_deleted = 0
